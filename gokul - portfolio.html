@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gokul SVS | ECE Student Portfolio</title>
+<meta name="description" content="Gokul SVS's personal portfolio. First-year Electronics and Communication Engineering student interested in electronics, Arduino, IoT and PCB design.">
+
+<style>
+/* ===== BASIC STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #080d1a;
+    --surface: #111a2d;
+    --surface2: #17243b;
+    --accent: #38bdf8;
+    --accent2: #818cf8;
+    --text: #f1f5f9;
+    --muted: #a7b4c9;
+    --border: #263650;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1120px;
+    margin: auto;
+}
+
+section {
+    padding: 85px 0;
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(29px, 4vw, 40px);
+    margin-bottom: 12px;
+}
+
+.section-title span {
+    color: var(--accent);
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 42px;
+    color: var(--muted);
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+/* ===== NAVIGATION ===== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8, 13, 26, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    min-height: 74px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    color: var(--text);
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ===== HOME / HERO ===== */
+.hero {
+    min-height: 87vh;
+    display: flex;
+    align-items: center;
+    padding: 75px 0;
+    background:
+        radial-gradient(ellipse at 85% 25%, #16345b 0%, transparent 40%),
+        radial-gradient(ellipse at 5% 90%, #14203e 0%, transparent 35%);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    border: 1px solid #285475;
+    background: #10233a;
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.12;
+    margin: 22px 0 15px;
+}
+
+.hero h2 {
+    color: var(--accent);
+    font-size: clamp(19px, 3vw, 25px);
+    font-weight: 600;
+}
+
+.hero-description {
+    margin-top: 22px;
+    max-width: 620px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 9px;
+    font-weight: 700;
+    border: 1px solid var(--accent);
+    transition: 0.3s;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #07111f;
+}
+
+.btn-outline {
+    color: var(--accent);
+    background: transparent;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px #38bdf822;
+}
+
+.profile-card {
+    text-align: center;
+    padding: 35px 24px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, var(--surface2), var(--surface));
+    border: 1px solid #2c4362;
+    box-shadow: 0 20px 60px #0004;
+}
+
+.avatar {
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #12365a, #27245c);
+    border: 3px solid var(--accent);
+    color: var(--accent);
+    font-size: 43px;
+    font-weight: 800;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card h3 {
+    font-size: 25px;
+}
+
+.profile-card p {
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #12392f;
+    color: #86efac;
+    font-size: 12px;
+}
+
+/* ===== ABOUT ===== */
+.about-box {
+    max-width: 900px;
+    margin: auto;
+    padding: 34px;
+    border-radius: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.about-box p {
+    color: var(--muted);
+    margin-bottom: 17px;
+}
+
+.about-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== EDUCATION ===== */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.education-card {
+    background: var(--surface);
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.edu-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.education-card h3 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.education-card .course {
+    color: var(--accent);
+    margin-bottom: 14px;
+}
+
+.education-card p {
+    color: var(--muted);
+}
+
+/* ===== MARKS ===== */
+.marks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.marks-card {
+    padding: 28px;
+    border-radius: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.marks-card h3 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.marks-card .exam-note {
+    color: var(--muted);
+    margin-bottom: 22px;
+    font-size: 14px;
+}
+
+.total-score {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.total-score small {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.mark-row {
+    margin-top: 17px;
+}
+
+.mark-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.mark-label span:last-child {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.progress-track {
+    height: 8px;
+    background: #25334b;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 20px;
+    transition: width 1.2s ease;
+}
+
+/* ===== SKILLS ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    padding: 27px;
+    border-radius: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px #0003;
+}
+
+.card-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+}
+
+.card h3 {
+    color: var(--accent);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card p,
+.card li {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.card ul {
+    padding-left: 19px;
+}
+
+/* ===== PROJECTS ===== */
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .project-status {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 18px;
+    background: #24334b;
+    color: #bfdbfe;
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 12px;
+}
+
+.project-card .project-status.idea {
+    color: #fde68a;
+    background: #40351d;
+}
+
+/* ===== GOALS ===== */
+.goals-box {
+    max-width: 900px;
+    margin: auto;
+    background: linear-gradient(130deg, #112b46, #191d3d);
+    border: 1px solid #2b4766;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.goals-box h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.goals-box p {
+    color: var(--muted);
+}
+
+/* ===== CONTACT ===== */
+.contact-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.contact-box h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin: 12px 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-box a:not(.btn) {
+    color: var(--accent);
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 27px 15px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+#topBtn {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #08111f;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+    z-index: 500;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 850px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        max-width: 420px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+}
+
+@media (max-width: 650px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        width: 100%;
+        padding: 22px;
+        background: #0c1527;
+        flex-direction: column;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .education-grid,
+    .marks-grid,
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .about-box,
+    .marks-card,
+    .education-card,
+    .contact-box {
+        padding: 23px;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<header>
+    <nav class="container">
+        <a href="#home" class="logo">GOKUL SVS.</a>
+
+        <button class="menu-btn" id="menuBtn"
+            aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#marks">Marks</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<!-- ===== HOME ===== -->
+<section class="hero" id="home">
+    <div class="container hero-content">
+
+        <div>
+            <span class="eyebrow">ECE STUDENT • FUTURE ENGINEER</span>
+
+            <h1>Hi, I'm <span class="highlight">Gokul SVS</span></h1>
+
+            <h2>Electronics & Communication Engineering</h2>
+
+            <p class="hero-description">
+                A first-year ECE student passionate about electronics,
+                embedded systems, Arduino, IoT and PCB design.
+                I love learning new technologies and turning ideas
+                into practical engineering projects.
+            </p>
+
+            <div class="button-group">
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Projects ↗
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <div class="avatar" id="avatar">GS</div>
+
+            <h3>Gokul SVS</h3>
+
+            <p>B.Tech — ECE</p>
+            <p>First-Year Engineering Student</p>
+            <p>Electronics | Programming | Innovation</p>
+
+            <span class="status">● Always Learning</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <p class="section-subtitle">
+            Get to know me, my interests and my ambitions.
+        </p>
+
+        <div class="about-box">
+            <p>
+                Hello! I'm <strong>Gokul SVS</strong>, a first-year
+                Electronics and Communication Engineering student.
+                I am interested in understanding how electronic
+                components, circuits and digital systems work.
+            </p>
+
+            <p>
+                I am building my foundation in programming and
+                electronics. I want to learn C programming, Arduino,
+                microcontrollers, PCB design, embedded systems and IoT
+                through practical experiments and individual projects.
+            </p>
+
+            <p>
+                I also enjoy web development and creating useful
+                digital experiences. My goal is to combine electronics
+                and software to develop innovative real-world solutions.
+            </p>
+
+            <p>
+                <strong class="highlight">My motto:</strong>
+                Stay humble. Work hard. Be kind. Keep learning.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education">
+    <div class="container">
+        <h2 class="section-title">My <span>Education</span></h2>
+
+        <p class="section-subtitle">
+            My academic journey from school to engineering.
+        </p>
+
+        <div class="education-grid">
+
+            <div class="education-card">
+                <div class="edu-icon">🎓</div>
+                <h3>B.Tech ECE</h3>
+                <p class="course">
+                    Electronics and Communication Engineering
+                </p>
+                <p><strong>Year:</strong> First Year</p>
+                <p><strong>Status:</strong> Currently Studying</p>
+                <p>
+                    Focus areas: electronic circuits, programming,
+                    electrical fundamentals and embedded systems.
+                </p>
+            </div>
+
+            <div class="education-card">
+                <div class="edu-icon">📘</div>
+                <h3>Higher Secondary — Class 12</h3>
+                <p class="course">Completed</p>
+                <p><strong>Total marks:</strong> 552</p>
+                <p><strong>Computer Science:</strong> 97</p>
+                <p>
+                    Continuing my academic journey in Electronics
+                    and Communication Engineering.
+                </p>
+            </div>
+
+            <div class="education-card">
+                <div class="edu-icon">🏫</div>
+                <h3>SSLC — Class 10</h3>
+                <p class="course">Completed</p>
+                <p><strong>Total marks:</strong> 477</p>
+                <p><strong>Mathematics:</strong> 98</p>
+                <p><strong>Science:</strong> 98</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== ACADEMIC ACHIEVEMENTS ===== -->
+<section id="marks">
+    <div class="container">
+        <h2 class="section-title">Academic <span>Achievements</span></h2>
+
+        <p class="section-subtitle">
+            My school examination results and subject highlights.
+        </p>
+
+        <div class="marks-grid">
+
+            <!-- CLASS 10 -->
+            <div class="marks-card">
+                <h3>Class 10 — SSLC</h3>
+                <p class="exam-note">School academic result</p>
+
+                <div class="total-score">
+                    477 <small>total marks</small>
+                </div>
+
+                <div class="mark-row">
+                    <div class="mark-label">
+                        <span>Mathematics</span>
+                        <span>98</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-bar" data-score="98"></div>
+                    </div>
+                </div>
+
+                <div class="mark-row">
+                    <div class="mark-label">
+                        <span>Science</span>
+                        <span>98</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-bar" data-score="98"></div>
+                    </div>
+                </div>
+
+                <p style="margin-top:20px;color:var(--muted)">
+                    Strong marks in Mathematics and Science.
+                </p>
+            </div>
+
+            <!-- CLASS 12 -->
+            <div class="marks-card">
+                <h3>Class 12 — HSC</h3>
+                <p class="exam-note">Higher secondary result</p>
+
+                <div class="total-score">
+                    552 <small>total marks</small>
+                </div>
+
+                <div class="mark-row">
+                    <div class="mark-label">
+                        <span>Computer Science</span>
+                        <span>97</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-bar" data-score="97"></div>
+                    </div>
+                </div>
+
+                <p style="margin-top:20px;color:var(--muted)">
+                    Building on my academic background as I learn
+                    engineering and technology.
+                </p>
+            </div>
+
+        </div>
+
+        <p style="text-align:center;color:var(--muted);margin-top:22px;font-size:13px">
+            Subject bars represent the score out of 100.
+            Total marks are displayed as provided.
+        </p>
+    </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">My <span>Skills & Interests</span></h2>
+
+        <p class="section-subtitle">
+            Technologies I am learning and want to develop further.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Electronics</h3>
+                <p>
+                    Learning electronic components, circuit fundamentals,
+                    capacitors, resistors, diodes and measurement instruments.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>C Programming</h3>
+                <p>
+                    Practising variables, conditions, loops, functions
+                    and basic problem-solving programs.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔌</div>
+                <h3>Arduino & IoT</h3>
+                <p>
+                    Exploring microcontrollers, sensors, input/output
+                    connections and smart electronic systems.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛠️</div>
+                <h3>PCB Design</h3>
+                <p>
+                    Learning circuit schematics, component placement,
+                    PCB routing and fabrication fundamentals.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>
+                    Exploring HTML, CSS and JavaScript to build
+                    websites and present project ideas online.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Embedded Systems</h3>
+                <p>
+                    Interested in combining hardware and software
+                    to build practical engineering solutions.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">My <span>Projects</span></h2>
+
+        <p class="section-subtitle">
+            My project interests and development ideas.
+            The status of each project is shown honestly.
+        </p>
+
+        <div class="grid">
+
+            <div class="card project-card">
+                <div class="card-icon">📏</div>
+                <h3>Arduino Distance Measurement</h3>
+                <p>
+                    An Arduino and ultrasonic sensor project idea
+                    for measuring the distance to nearby objects.
+                </p>
+                <span class="project-status">Learning / Development</span>
+            </div>
+
+            <div class="card project-card">
+                <div class="card-icon">🔋</div>
+                <h3>Electronics Circuit Design</h3>
+                <p>
+                    Exploring basic circuits and learning how to
+                    select components and understand their operation.
+                </p>
+                <span class="project-status">Learning</span>
+            </div>
+
+            <div class="card project-card">
+                <div class="card-icon">🟩</div>
+                <h3>PCB Design</h3>
+                <p>
+                    Learning to convert a circuit schematic into
+                    a printed circuit board layout using design tools.
+                </p>
+                <span class="project-status">Learning</span>
+            </div>
+
+            <div class="card project-card">
+                <div class="card-icon">🌐</div>
+                <h3>GOKUL Projects</h3>
+                <p>
+                    A web-based project showcase concept for presenting
+                    electronics and IoT ideas and helping users explore projects.
+                </p>
+                <span class="project-status idea">Web Project</span>
+            </div>
+
+            <div class="card project-card">
+                <div class="card-icon">💡</div>
+                <h3>Automatic Night Lamp</h3>
+                <p>
+                    A proposed sensor-based circuit that can control
+                    a lamp based on the surrounding light level.
+                </p>
+                <span class="project-status idea">Project Idea</span>
+            </div>
+
+            <div class="card project-card">
+                <div class="card-icon">🚀</div>
+                <h3>Future ECE Projects</h3>
+                <p>
+                    Interested in exploring robotics, smart devices,
+                    embedded systems and practical IoT applications.
+                </p>
+                <span class="project-status idea">Future Goal</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== GOALS ===== -->
+<section id="goals">
+    <div class="container">
+        <div class="goals-box">
+            <h2 class="section-title">
+                My <span>Future Goal</span>
+            </h2>
+
+            <h3>Learn. Build. Innovate.</h3>
+
+            <p>
+                My goal is to strengthen my electronics fundamentals,
+                improve my programming skills, learn PCB design and
+                develop practical hardware projects. I want to become
+                an engineer who creates useful technology through
+                continuous learning and experimentation.
+            </p>
+
+            <div class="button-group" style="justify-content:center">
+                <a href="#contact" class="btn btn-primary">
+                    Let's Connect
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact <span>Me</span></h2>
+
+        <p class="section-subtitle">
+            Connect with me about electronics, learning and project ideas.
+        </p>
+
+        <div class="contact-box">
+            <h3>Gokul SVS</h3>
+
+            <p>
+                B.Tech Electronics and Communication Engineering Student
+            </p>
+
+            <p>
+                📧 Email:
+                <a href="mailto:svsgokul2008@gmail.com">
+                    svsgokul2008@gmail.com
+                </a>
+            </p>
+
+            <div class="button-group" style="justify-content:center">
+                <a class="btn btn-primary"
+                   href="mailto:svsgokul2008@gmail.com?subject=Portfolio%20Contact">
+                    Send Me an Email ↗
+                </a>
+
+                <button class="btn btn-outline" id="copyEmail">
+                    Copy Email
+                </button>
+            </div>
+
+            <p id="copyMessage" aria-live="polite"
+               style="margin-top:15px;font-size:13px"></p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Gokul SVS. All rights reserved.</p>
+    <p>Designed with HTML, CSS & JavaScript.</p>
+</footer>
+
+<button id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+// ===== MOBILE MENU =====
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuBtn.setAttribute("aria-expanded", isOpen);
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+// Close mobile menu after clicking a navigation link
+document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+    });
+});
+
+// ===== AUTOMATIC COPYRIGHT YEAR =====
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+// ===== BACK TO TOP =====
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function () {
+    topBtn.style.display = window.scrollY > 350 ? "block" : "none";
+});
+
+topBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+// ===== ANIMATED ACADEMIC SCORE BARS =====
+const scoreBars = document.querySelectorAll(".progress-bar");
+
+const scoreObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            const score = entry.target.dataset.score;
+            entry.target.style.width = score + "%";
+            scoreObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.3 });
+
+scoreBars.forEach(function (bar) {
+    scoreObserver.observe(bar);
+});
+
+// ===== COPY EMAIL BUTTON =====
+const copyButton = document.getElementById("copyEmail");
+const copyMessage = document.getElementById("copyMessage");
+
+copyButton.addEventListener("click", async function () {
+    const email = "svsgokul2008@gmail.com";
+
+    try {
+        await navigator.clipboard.writeText(email);
+        copyMessage.textContent = "Email copied successfully!";
+    } catch (error) {
+        copyMessage.textContent =
+            "Please copy this email manually: " + email;
+    }
+});
+
+// ===== OPTIONAL PROFILE PHOTO =====
+// 1. Put your photo in the same folder as index.html.
+// 2. Name it profile.jpg.
+// 3. Uncomment the following two lines.
+
+// document.getElementById("avatar").innerHTML =
+//     '<img src="profile.jpg" alt="Gokul SVS">';
+
+// ===== ACTIVE NAVIGATION LINK =====
+const pageSections = document.querySelectorAll("main section[id]");
+const navItems = document.querySelectorAll(".nav-links a");
+
+const sectionObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            navItems.forEach(function (item) {
+                item.classList.toggle(
+                    "active",
+                    item.getAttribute("href") === "#" + entry.target.id
+                );
+            });
+        }
+    });
+}, { rootMargin: "-25% 0px -60% 0px" });
+
+pageSections.forEach(function (section) {
+    sectionObserver.observe(section);
+});
+</script>
+
+</body>
+</html>
